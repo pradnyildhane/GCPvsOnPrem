@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,6 +23,11 @@ import java.sql.SQLException;
 @EnableAutoConfiguration
 @SpringBootApplication
 public class GcpVsOPremApplication {
+
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 
 	@Autowired
 	RestTemplate restTemplate;
